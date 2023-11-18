@@ -6,7 +6,8 @@ html,body {
 
 body {
     margin: 0;
-
+    left: 0;
+    right: 0;
     font-weight: 400;
     font-family: "monospace";
     font-size: 5px;
