@@ -7,8 +7,10 @@ var messageForm = document.querySelector('#messageForm');
 var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
+var divOnlineUsers = document.querySelector(".online_users");
 var stompClient = null;
 var username = null;
+var userOnline = 0;
 var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
@@ -69,11 +71,43 @@ function onMessageReceived(payload) {
     if(message.type === 'JOIN') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' joined!';
+        var user = document.createElement('p')
+        user.textContent = message.sender + ' is online';
+        user.id = message.sender;
+
+        divOnlineUsers.appendChild(user);
+
     } else if (message.type === 'LEAVE') {
         messageElement.classList.add('event-message');
-        message.content = message.sender + ' left! -4ort';
+        message.content = message.sender + ' left!';
+        var paragraphs = divOnlineUsers.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            // Access the text content of each paragraph
+            if(paragraph.id === message.sender.toString()){
+                paragraph.remove();
+            }
+            else{
+                console.log("everything-ok")
+            }
+        });
     } else {
         messageElement.classList.add('chat-message');
+
+        var paragraphs = divOnlineUsers.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            // Access the text content of each paragraph
+            if(paragraph.id === message.sender.toString() && userOnline === 0){
+                userOnline = 1;
+            }
+        });
+        if(!userOnline){
+            var user = document.createElement('p');
+            user.textContent = message.sender + ' is online';
+            user.id = message.sender;
+            divOnlineUsers.appendChild(user);
+
+        }
+
 
         var avatarElement = document.createElement('i');
 
