@@ -1,17 +1,17 @@
 html,body {
     height: 100%;
     overflow: hidden;
-    background-color: #6db33f;
 }
 
 body {
     margin: 0;
-    left: 0;
-    right: 0;
+    padding: 0;
     font-weight: 400;
     font-family: "monospace";
-    font-size: 5px;
-    background-color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.58;
+    color: #333;
+    background-color: greenyellow;
     height: 100%;
 }
 
@@ -29,7 +29,7 @@ body {
     width: 100%;
     min-height: 38px;
     font-size: 15px;
-    border: 1px solid darkseagreen;
+    border: 1px solid #c8c8c8;
 }
 
 .form-group {
@@ -76,36 +76,39 @@ button.default {
 }
 
 button.primary {
-    background-color: greenyellow;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: white;
+    background-color: #6db33f;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
 }
 
 button.accent {
-    background-color: green;
-    border-radius: 20px;
-    border: 1px solid black;
+    background-color: #6db33f;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
 }
 
 #username-page {
     text-align: center;
-    background-color: #6db33f;
 }
 
 .username-page-container {
-    background: greenyellow;
+    background: #fff;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     border-radius: 2px;
     width: 100%;
     max-width: 500px;
     display: inline-block;
+    margin-top: 42px;
     vertical-align: middle;
+    position: relative;
     padding: 35px 55px 35px;
     min-height: 250px;
     position: absolute;
     top: 50%;
-
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -160px;
 }
 
 .username-page-container .username-submit {
@@ -116,11 +119,10 @@ button.accent {
 #chat-page {
     position: relative;
     height: 100%;
-    width: 80%;
 }
 
 .chat-container {
-    max-width: 900px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
@@ -219,13 +221,13 @@ button.accent {
 
 .chat-header h2 {
     margin: 0;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .connecting {
     padding-top: 5px;
     text-align: center;
-    color: black;
+    color: #777;
     position: absolute;
     top: 65px;
     width: 100%;
@@ -243,12 +245,14 @@ button.accent {
 
 @media screen and (max-width: 480px) {
     .chat-container {
-        height: 80%;
+        height: calc(100% - 30px);
     }
 
     .username-page-container {
         width: auto;
-
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 25px;
     }
 
     #chat-page ul {
@@ -260,11 +264,11 @@ button.accent {
     }
 
     #messageForm .input-group input {
-        width: 80%;
+        width: calc(100% - 70px);
     }
 
     .chat-header {
-        padding: 5px;
+        padding: 10px;
     }
 
     .connecting {
