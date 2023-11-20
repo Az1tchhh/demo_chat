@@ -12,6 +12,7 @@ public class SomeController {
 
     @GetMapping
     public String awake(){
+        System.out.println("POXPOXPOXPOX");
         return "Sir, yes, sir!";
     }
 }
