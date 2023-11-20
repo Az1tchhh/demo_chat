@@ -65,7 +65,7 @@ function sendMessage(event) {
 
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
-
+    console.log(payload.body)
     var messageElement = document.createElement('li');
 
     if(message.type === 'JOIN') {
