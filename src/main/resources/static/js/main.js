@@ -105,7 +105,6 @@ function onMessageReceived(payload) {
             user.textContent = message.sender + ' is online';
             user.id = message.sender;
             divOnlineUsers.appendChild(user);
-
         }
 
 
