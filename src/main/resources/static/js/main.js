@@ -15,7 +15,7 @@ var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
-
+document.addEventListener('contextmenu', event => event.preventDefault());
 function connect(event) {
     username = document.querySelector('#name').value.trim();
 
